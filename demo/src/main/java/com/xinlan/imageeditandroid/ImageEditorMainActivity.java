@@ -10,10 +10,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -25,9 +23,8 @@ import com.xinlan.imageeditlibrary.editimage.utils.BitmapUtils;
 import com.xinlan.imageeditlibrary.picchooser.SelectPictureActivity;
 
 import java.io.File;
-import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class ImageEditorMainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final int REQUEST_PERMISSON_SORAGE = 1;
     public static final int REQUEST_PERMISSON_CAMERA = 2;
 
@@ -35,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int TAKE_PHOTO_CODE = 8;
     public static final int ACTION_REQUEST_EDITIMAGE = 9;
     public static final int ACTION_STICKERS_IMAGE = 10;
-    private MainActivity context;
+    private ImageEditorMainActivity context;
     private ImageView imgView;
     private View openAblum;
     private View editImage;//
@@ -50,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_image_editor_main);
         initView();
     }
 
@@ -150,8 +147,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void openAblum() {
-        MainActivity.this.startActivityForResult(new Intent(
-                        MainActivity.this, SelectPictureActivity.class),
+        ImageEditorMainActivity.this.startActivityForResult(new Intent(
+                        ImageEditorMainActivity.this, SelectPictureActivity.class),
                 SELECT_GALLERY_IMAGE_CODE);
     }
 
